@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJs</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/vue@2.6.14"></script>
+</head>
+<body>
+    <div id="vue-app">
+        <p>{{name}}</p>
+        <p>Job:{{job}}</p>
+        <h1>{{great('afternoon')}}</h1>  <!--  Method -->
+        <a v-bind:href="website">Mail Link</a>  <!--  Data binding -->
+        <input type="text" v-bind:value="job" />   <!--  Data binding --> 
+        <p v-html="websiteTag"> {{websiteTag}} </p>
+
+        <!--  EVENTS --> 
+        <h1> Events</h1>
+        <button v-on:click="age++">Add a year</button>
+        <button v-on:click="age--">Subtract a year</button>
+        <p>My age is {{age}}</p>
+
+        <!--   EVENTS --> 
+        <h1> Events--call METHOD</h1>
+        <button v-on:click="add">Add a year</button> <!--when calling event- method not required parenthis during calling -->
+        <button v-on:click="subtract">Subtract a year</button>
+        <button v-on:dblclick="addTen(10)">Add a 10 year</button> 
+        <button v-on:dblclick="subtractTen(10)">Subtract a 10 year</button>
+        <p>My new age is {{age}}</p>
+        <br>
+        <div id="canvas" v-on:mousemove="updateXY">{{x}},{{y}}</div>
+
+        <!-- Event Modefier -->
+        <h1> Events Modiefier </h1>
+         <!-- This event only work run on first click -->
+        <button v-on:click.once="increment">Increase Count</button>
+        <p>My new Count is {{count}}</p>
+        <br>
+        <!-- prevent modifier prevent (on clicking to open link) insteed to run click function-->
+        <a v-on:click.prevent="click" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox">Mail Link</a>
+        <br>
+
+
+
+            <!--  Keyboard Events -->
+            <h1> Keyboard events </h1>
+            <label>Name:</label>
+            <input type="text" v-on:keyup="logName"/> <!-- on any key press logName function call-->
+            <label >Age:</label>
+            <input type="text" v-on:keyup.enter="logAge"/> <!-- on enter key press logAge function call-->
+            <label >Date:</label>
+            <input type="text" v-on:keyup.alt.enter="logDate"/> <!-- on (alt + enter) key press logAge function call-->
+
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

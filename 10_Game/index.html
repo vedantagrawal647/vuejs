@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJs</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/vue@2.6.14"></script>
+</head>
+<body>
+    <div id="vue-app">
+   
+        <!-- It is basically used when we we want to run
+             only those function automatically whose value is changed-->
+            <h1> Watcher properties </h1>
+            Type: <input type="text" v-model="message" />
+            <p v-if="typing">Typing</p>
+
+            <br>
+            <br>
+            
+
+            Gb:<input type="number" v-model.number="gb" />
+            Mb:<input type="number" v-model.number="mb" />
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
